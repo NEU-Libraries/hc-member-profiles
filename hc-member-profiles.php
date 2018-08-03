@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: HC Member Profiles
+ * Plugin Name: NEU Member Profiles
  * Plugin URI:  https://github.com/mlaa/hc-member-profiles
- * Description: Enhanced BuddyPress XProfile functionality for Humanities Commons
- * Author:      MLA
- * Author URI:  https://github.com/mlaa
+ * Description: Enhanced BuddyPress XProfile functionality for Humanities Commons. Forked from MLA Commons Profile
+ * Author:      MLA, NEU, Tanner Moushey (iWitness Design)
+ * Author URI:  https://github.com/NEU-Libraries
  * Text Domain: hc-member-profiles
  * Domain Path: /languages
  *

@@ -130,7 +130,6 @@ class Test_Functions extends BP_UnitTestCase {
 		// These are only installed if the required dependency is active.
 		$extra_fields = [
 			HC_Member_Profiles_Component::DEPOSITS     => 'core_deposits',
-			HC_Member_Profiles_Component::CV           => 'bp_attachment',
 			HC_Member_Profiles_Component::INTERESTS    => 'academic_interests',
 			HC_Member_Profiles_Component::GROUPS       => 'bp_groups',
 			HC_Member_Profiles_Component::ACTIVITY     => 'bp_activity',

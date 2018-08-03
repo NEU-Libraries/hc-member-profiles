@@ -225,7 +225,6 @@ function hcmp_get_field( $field_name = '' ) {
 		HC_Member_Profiles_Component::PROJECTS,
 		HC_Member_Profiles_Component::TALKS,
 		HC_Member_Profiles_Component::MEMBERSHIPS,
-		HC_Member_Profiles_Component::CV,
 	];
 
 	if ( in_array( $field_name, $user_hideable_fields ) ) {
@@ -414,7 +413,6 @@ function _hcmp_create_xprofile_fields() {
 	// Create field types that have satisfied dependencies - see hcmp_register_xprofile_field_types().
 	$extra_fields = [
 		HC_Member_Profiles_Component::DEPOSITS  => 'core_deposits',
-		HC_Member_Profiles_Component::CV        => 'bp_attachment',
 		HC_Member_Profiles_Component::INTERESTS => 'academic_interests',
 		HC_Member_Profiles_Component::GROUPS    => 'bp_groups',
 		HC_Member_Profiles_Component::ACTIVITY  => 'bp_activity',
