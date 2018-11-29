@@ -67,7 +67,7 @@ class BP_XProfile_Field_Type_Personal_Interests extends BP_XProfile_Field_Type {
 				'fields' => 'names',
 			)
 		);
-		$interest_ids = get_user_meta( get_current_user_id(), 'personal_interests' );
+		$interest_ids = get_user_meta( bp_displayed_user_id(), 'personal_interests' );
 		$interests = array();
 		foreach ( $interest_ids as $interest_id ) {
 			$term = get_term( $interest_id );
