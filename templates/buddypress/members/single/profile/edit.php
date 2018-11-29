@@ -19,6 +19,7 @@ do_action( 'bp_before_profile_edit_content' );
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::ORCID ); ?>
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::SITE ); ?>
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::INTERESTS ); ?>
+		<?php echo hcmp_get_field( HC_Member_Profiles_Component::PERSONAL ); ?>
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::GROUPS ); ?>
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::ACTIVITY ); ?>
 		<?php echo hcmp_get_field( HC_Member_Profiles_Component::BLOGS ); ?>

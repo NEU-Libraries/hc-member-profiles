@@ -49,6 +49,19 @@ function hcmp_register_xprofile_field_types( array $fields ) {
 		add_action( 'send_headers', [ 'Academic_Interests', 'set_academic_interests_cookie_query' ] );
 	}
 
+	// Personal Interests.
+	if ( class_exists( 'MLA_Academic_Interests' ) ) {
+		// Field type.
+		require_once dirname( __FILE__ ) . '/class-bp-xprofile-field-type-personal-interests.php';
+		$fields['personal_interests'] = 'BP_XProfile_Field_Type_Personal_Interests';
+
+		// Backpat functionality - TODO roll this into the field type.
+		require_once dirname( __FILE__ ) . '/class-personal-interests.php';
+		add_action( 'bp_get_template_part', [ 'Personal_Interests', 'add_personal_interests_to_directory' ] );
+		add_action( 'xprofile_updated_profile', [ 'Personal_Interests', 'save_personal_interests' ] );
+		add_action( 'send_headers', [ 'Personal_Interests', 'set_personal_interests_cookie_query' ] );
+	}
+
 	return $fields;
 }
 
@@ -241,6 +254,7 @@ function hcmp_get_field( $field_name = '' ) {
 
 	$wordblock_fields = [
 		HC_Member_Profiles_Component::INTERESTS,
+		HC_Member_Profiles_Component::PERSONAL,
 		HC_Member_Profiles_Component::GROUPS,
 		HC_Member_Profiles_Component::BLOGS,
 	];

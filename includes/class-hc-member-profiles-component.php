@@ -29,6 +29,7 @@ class HC_Member_Profiles_Component extends BP_Component {
 	const GROUPS       = 'Commons Groups';
 	const ACTIVITY     = 'Recent Commons Activity';
 	const BLOGS        = 'Commons Sites';
+	const PERSONAL     = 'Personal Interests';
 
 	/**
 	 * TODO deprecate.
@@ -63,6 +64,7 @@ class HC_Member_Profiles_Component extends BP_Component {
 			self::GROUPS       => 'Commons Groups',
 			self::ACTIVITY     => 'Recent Commons Activity',
 			self::BLOGS        => 'Commons Sites',
+			self::PERSONAL     => 'Personal Interests',
 		];
 
 		parent::start(
