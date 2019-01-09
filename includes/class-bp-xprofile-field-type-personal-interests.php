@@ -61,17 +61,24 @@ class BP_XProfile_Field_Type_Personal_Interests extends BP_XProfile_Field_Type {
 	 * @return mixed
 	 */
 	public static function display_filter( $field_value, $field_id = '' ) {
-		$tax       = get_taxonomy( 'mla_academic_interests' );
-		$interests = wpmn_get_object_terms(
-			bp_displayed_user_id(), 'mla_academic_interests', array(
-				'fields' => 'names',
-			)
-		);
+		$tax_site_id = wpmn_get_taxonomy_term_site_id( 'mla_academic_interests' );
+		$switched    = false;
+
+		if ( $tax_site_id != get_current_blog_id() ) {
+			switch_to_blog( $tax_site_id );
+			wpmn_register_taxonomies();
+			$switched = true;
+		}
+
 		$interest_ids = get_user_meta( bp_displayed_user_id(), 'personal_interests' );
-		$interests = array();
+		$interests    = array();
 		foreach ( $interest_ids as $interest_id ) {
-			$term = get_term( $interest_id );
+			$term        = get_term( $interest_id );
 			$interests[] = $term->name;
+		}
+
+		if ( $switched ) {
+			restore_current_blog();
 		}
 
 		$html      = '<ul>';
