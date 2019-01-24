@@ -106,7 +106,9 @@ class BP_XProfile_Field_Type_Academic_Interests extends BP_XProfile_Field_Type {
 		$doc = new DOMDocument();
 
 		ob_start();
-		$mla_academic_interests->edit_user_mla_academic_interests_section( wp_get_current_user() );
+
+		$user = isset( $_GET['user_id'] ) ? get_userdata( $_GET['user_id'] ) : wp_get_current_user();
+		$mla_academic_interests->edit_user_mla_academic_interests_section( $user );
 
 		// Encoding prevents mangling of multibyte characters.
 		// Constants ensure no <body> or <doctype> tags are added.

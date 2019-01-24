@@ -36,15 +36,6 @@ class BP_XProfile_Field_Type_Personal_Interests extends BP_XProfile_Field_Type {
 	 */
 	public function __construct() {
 		parent::__construct();
-
-		// Change UP member's interests field display name.
-		$displayed_user = bp_get_displayed_user();
-		if ( $displayed_user ) {
-			$memberships = bp_get_member_type( $displayed_user->id, false );
-			if ( is_array( $memberships ) && in_array( 'up', $memberships ) ) {
-				HC_Member_Profiles_Component::$display_names[ HC_Member_Profiles_Component::INTERESTS ] = 'Personal Interests';
-			}
-		}
 	}
 
 	/**
@@ -115,7 +106,7 @@ class BP_XProfile_Field_Type_Personal_Interests extends BP_XProfile_Field_Type {
 	public function edit_field_html( array $raw_properties = [] ) {
 		global $mla_academic_interests;
 
-		$user = wp_get_current_user();
+		$user = isset( $_GET['user_id'] ) ? get_userdata( $_GET['user_id'] ) : wp_get_current_user();
 
 		printf( '<label>%s</label>', $this->name );
 
